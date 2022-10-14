@@ -1,0 +1,1 @@
+<template>List product</template>

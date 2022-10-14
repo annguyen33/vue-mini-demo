@@ -1,0 +1,110 @@
+.list {
+  width: 100%;
+  padding: 0 100px;
+  margin-top: 80px;
+
+  &__header {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__title {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    &__action {
+      button {
+        width: 130px;
+        height: 40px;
+        color: #fff;
+        border-radius: 5px;
+        padding: 10px 25px;
+        font-size: 19px;
+        font-weight: 700;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+          4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+        outline: none;
+      }
+
+      .custom__btn {
+        background: rgba(2, 126, 251, 1);
+        border: none;
+      }
+    }
+  }
+}
+
+table {
+  color: black;
+  background-color: white;
+  border-color: black;
+  border-style: solid;
+  border-width: 0 1px 1px 1px;
+  border-radius: 5px;
+  border-collapse: separte;
+  border-spacing: 0;
+  display: table;
+  overflow: auto;
+  width: 100%;
+
+  thead th {
+    color: white;
+    background-color: #5666a5;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 5px 10px;
+    vertical-align: bottom;
+  }
+  thead th:first-child {
+    border-top-left-radius: 5px;
+  }
+  thead th:last-child {
+    border-top-right-radius: 5px;
+  }
+
+  tbody td {
+    border-top: 1px solid gray;
+    padding: 5px 10px;
+    vertical-align: top;
+  }
+}
+
+.container {
+  margin: 10px;
+
+  .body {
+    padding: 10px 20px 10px 50px;
+    text-align: end;
+  }
+
+  .input {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+
+    label {
+      width: 100px;
+      margin-right: 20px;
+      color: #333;
+    }
+
+    input {
+      height: 30px;
+      width: 60%;
+      border-radius: 5px;
+      padding: 5px 10px;
+    }
+  }
+}
