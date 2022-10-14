@@ -3,7 +3,7 @@
     <div class="header">
       <div class="header__logo">
         <img src="../assets/logo.png" />
-        Mini Demo
+        <router-link :to="{ name: 'home' }"> Mini Demo</router-link>
       </div>
       <div class="header__page">
         <ul>

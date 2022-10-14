@@ -3,18 +3,18 @@
   padding: 0 100px;
   margin-top: 80px;
 
-  &__header {
+  &-header {
     margin-bottom: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    &__title {
+    &-title {
       font-size: 24px;
       font-weight: 700;
     }
 
-    &__action {
+    &-action {
       button {
         width: 130px;
         height: 40px;
@@ -33,9 +33,13 @@
         outline: none;
       }
 
-      .custom__btn {
+      .custom-btn {
         background: rgba(2, 126, 251, 1);
         border: none;
+
+        a {
+          color: #fff;
+        }
       }
     }
   }
@@ -85,13 +89,23 @@ table {
   }
 
   .input {
-    width: 100%;
-    margin-bottom: 20px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    font-size: 16px;
+    margin: 10px 0;
 
-    &:last-child {
-      margin-bottom: 0px;
+    &-group {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 0%;
+
+      &-error {
+        text-align: start;
+        margin-top: 5px;
+        color: rgb(241, 75, 75);
+        font-size: 15px;
+      }
     }
 
     label {
@@ -102,7 +116,7 @@ table {
 
     input {
       height: 30px;
-      width: 60%;
+      width: 80%;
       border-radius: 5px;
       padding: 5px 10px;
     }

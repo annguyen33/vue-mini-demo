@@ -1,11 +1,21 @@
-import { createStore } from 'vuex';
+import type { InjectionKey } from 'vue';
+import { createStore, Store, useStore as baseUseStore } from 'vuex';
+import { UsersModule } from './users/UsersModule';
 
-export default createStore({
-  state: {
-    users: [],
+export type RootState = {
+  users: ReturnType<typeof UsersModule.state>;
+};
+
+export const key: InjectionKey<Store<RootState>> = Symbol();
+
+const store = createStore({
+  modules: {
+    users: UsersModule,
   },
-  getters: {},
-  mutations: {},
-  actions: {},
-  modules: {},
 });
+
+export function useStore() {
+  return baseUseStore(key);
+}
+
+export default store;

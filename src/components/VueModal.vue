@@ -4,9 +4,13 @@
       <transition name="modal-animation-inner">
         <div v-show="modalActive" class="modal-inner">
           <h5>Add New User</h5>
-          <i @click="$emit('close')" class="far fa-times-circle"></i>
+          <router-link :to="{ name: 'users' }">
+            <i @click="$emit('close')" class="far fa-times-circle"> </i>
+          </router-link>
           <!-- Modal Content -->
-          <slot />
+          <div class="modal-content">
+            <slot />
+          </div>
         </div>
       </transition>
     </div>
@@ -19,9 +23,7 @@ const props = defineProps<{
   modalActive: boolean;
 }>();
 
-const emit = defineEmits<{
-  (e: 'close'): void;
-}>();
+defineEmits<{ (e: 'close'): void }>();
 </script>
 
 <style lang="scss" scoped>

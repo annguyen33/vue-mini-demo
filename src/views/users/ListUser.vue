@@ -1,12 +1,14 @@
 <template>
   <div class="list">
-    <div class="list__header">
-      <div class="list__header__title">List User</div>
-      <div class="list__header__action">
-        <button class="custom__btn" @click="$emit('toggleModal')">Add new</button>
+    <div class="list-header">
+      <div class="list-header-title">List User</div>
+      <div class="list-header-action">
+        <button class="custom-btn" @click="$emit('toggleModal')">
+          <router-link :to="{ name: 'users-add' }"> Add new </router-link>
+        </button>
       </div>
     </div>
-    <div class="list__user">
+    <div class="list-user">
       <table>
         <thead>
           <tr>
@@ -37,14 +39,14 @@ defineEmits(['toggleModal']);
 const users = ref([
   {
     id: 1,
-    name: 'Nguyễn Phúc Ân',
+    name: 'Nguyễn Phúc Ân 1',
     dateOfBirth: '03/03/2000',
     email: 'phucan332000@gmail.com',
     phone: '0345222577',
   },
   {
     id: 2,
-    name: 'Nguyễn Phúc Ân',
+    name: 'Nguyễn Phúc Ân 2',
     dateOfBirth: '03/03/2000',
     email: 'phucan332000@gmail.com',
     phone: '0345222577',
