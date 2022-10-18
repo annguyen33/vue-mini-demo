@@ -1,11 +1,11 @@
 <template>
   <div class="container">
     <div class="header">
-      <div class="header__logo">
+      <div class="header-logo">
         <img src="../assets/logo.png" />
         <router-link :to="{ name: 'home' }"> Mini Demo</router-link>
       </div>
-      <div class="header__page">
+      <div class="header-page">
         <ul>
           <li>
             <router-link :to="{ name: 'users' }" @click="handleChangePage(0)" :class="{ active: selectedItem === 0 }"
@@ -19,7 +19,7 @@
           </li>
         </ul>
       </div>
-      <div class="header__left"></div>
+      <div class="header-left"></div>
     </div>
   </div>
 </template>

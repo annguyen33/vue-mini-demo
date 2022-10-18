@@ -1,7 +1,7 @@
 <template>
-  <Modal @close="$emit('toggleModal')" :modalActive="props.modalActive">
-    <template v-slot:header> Modal Header </template>
-    <div class="modal-content">
+  <Modal @close-modal="emit('toggleModal')" :modal-active="modalActive">
+    <template v-slot:title> {{ user ? 'Update user' : 'Add new user' }} </template>
+    <template v-slot:content>
       <div class="container">
         <form @submit.prevent="onSubmit">
           <div class="body">
@@ -10,40 +10,41 @@
             <CustomInput type="text" label="Email:" v-model.trim()="email" :errors="v.email.$errors" />
             <CustomInput type="text" label="Phone:" v-model="phone" :errors="v.phone.$errors" />
           </div>
-          <div class="footer">
-            <div class="modal-action">
-              <button class="custom-btn" type="submit">Add</button>
-              <router-link :to="{ name: 'users' }">
-                <button class="custom-btn-1" @click="$emit('toggleModal')" type="button">Close</button>
-              </router-link>
-            </div>
+          <div class="modal-action">
+            <button class="custom-btn" type="submit">{{ user ? 'Update' : 'Add' }}</button>
+            <router-link :to="{ name: 'users' }">
+              <button class="custom-btn-1" @click="$emit('toggleModal')" type="button">Close</button>
+            </router-link>
           </div>
         </form>
       </div>
-    </div>
+    </template>
   </Modal>
 </template>
 
 <script setup lang="ts">
-import Modal from '@/components/VueModal.vue';
-import CustomInput from '@/components/CustomInput.vue';
+import Modal from '../../components/VueModal.vue';
+import CustomInput from '../../components/CustomInput.vue';
 import { v4 as uuid } from 'uuid';
-import { defineProps, defineEmits, ref } from 'vue';
+import { defineEmits, onBeforeMount, ref, watch } from 'vue';
 import { required, helpers, email as emailV, numeric, minLength, maxLength } from '@vuelidate/validators';
 import { useVuelidate } from '@vuelidate/core';
-import { useStore } from '@/store';
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
+import { usersModule } from '@/store';
 
-const store = useStore();
+// route & store
 const router = useRouter();
+const route = useRoute();
+const { userId } = route.params;
+const user = usersModule.getUser(userId as string);
 
-const props = defineProps(['modalActive']);
-defineEmits(['toggleModal']);
-
-const name = ref('');
-const dateOfBirth = ref('');
-const email = ref('');
-const phone = ref('');
+// define props and event
+const modalActive = ref(false);
+const name = ref(user ? user.name : '');
+const dateOfBirth = ref(user ? user.dateOfBirth : '');
+const email = ref(user ? user.email : '');
+const phone = ref(user ? user.phone : '');
+const emit = defineEmits<{ (e: 'toggleModal'): void }>();
 
 const rules = {
   name: {
@@ -64,15 +65,46 @@ const rules = {
   },
 };
 
-const v = useVuelidate(rules, { id: uuid(), name, dateOfBirth, email, phone });
+const v = useVuelidate(rules, { name, email, dateOfBirth, phone });
 
-async function onSubmit(e: Event) {
-  const validateResult = await v.value.$validate();
-  if (!validateResult) return;
-  console.log({ id: uuid(), name, dateOfBirth, email, phone });
+async function onSubmit() {
+  const validate = await v.value.$validate();
+  if (!validate) return;
 
-  store.commit('users/add', { id: uuid(), name, dateOfBirth, email, phone });
-  router.replace('/products');
+  if (user) {
+    usersModule.editUser({
+      id: user.id,
+      newUser: { ...user, name: name.value, dateOfBirth: dateOfBirth.value, email: email.value, phone: phone.value },
+    });
+  } else {
+    usersModule.addUser({
+      id: uuid(),
+      name: name.value,
+      dateOfBirth: dateOfBirth.value,
+      email: email.value,
+      phone: phone.value,
+    });
+  }
+  router.back();
+}
+
+onBeforeMount(() => {
+  checkModal();
+});
+
+watch(
+  () => userId,
+  () => {
+    checkModal();
+  },
+);
+
+function checkModal() {
+  if (userId || route.path.includes('/add')) {
+    modalActive.value = true;
+  } else {
+    modalActive.value = false;
+  }
 }
 </script>
 

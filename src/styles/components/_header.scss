@@ -14,7 +14,7 @@
     font-size: 24px;
     justify-content: space-between;
 
-    &__logo {
+    &-logo {
       display: flex;
       align-items: center;
       img {
@@ -23,7 +23,7 @@
       }
     }
 
-    &__page {
+    &-page {
       ul {
         display: flex;
         align-items: center;

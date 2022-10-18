@@ -1,16 +1,6 @@
-<script setup lang="ts">
-import { defineProps, defineEmits } from 'vue';
-import type { ErrorObject } from '@vuelidate/core';
-defineProps<{ label: string; modelValue: string | number; type: string; errors?: ErrorObject[] }>();
-const emit = defineEmits<{
-  (event: 'update:modelValue', payload: string): void;
-}>();
-</script>
-
 <template>
   <div class="input">
     <label>{{ label }}</label>
-
     <div class="input-group">
       <input
         :type="type"
@@ -22,6 +12,14 @@ const emit = defineEmits<{
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { defineProps, defineEmits } from 'vue';
+import type { ErrorObject } from '@vuelidate/core';
+
+defineProps<{ label: string; modelValue: string | number; type: string; errors?: ErrorObject[] }>();
+const emit = defineEmits<{ (event: 'update:modelValue', payload: string): void }>();
+</script>
 
 <style lang="scss" scoped>
 @import '../styles/views/users/users';

@@ -11,11 +11,17 @@ const admin = [
     children: [
       {
         name: 'users-add',
-        path: '/users/add',
+        path: 'add',
         component: () => import('../views/users/FormUser.vue'),
       },
       {
-        path: '/users/:id',
+        name: 'users-add-vee',
+        path: 'add-vee',
+        component: () => import('../views/users/FormUserVee.vue'),
+      },
+      {
+        name: 'users-edit',
+        path: ':userId',
         component: () => import('../views/users/FormUser.vue'),
       },
     ],

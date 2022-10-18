@@ -16,12 +16,12 @@
 
     &-action {
       button {
-        width: 130px;
+        width: 180px;
         height: 40px;
         color: #fff;
         border-radius: 5px;
-        padding: 10px 25px;
-        font-size: 19px;
+        padding: 10px 8px;
+        font-size: 15px;
         font-weight: 700;
         background: transparent;
         cursor: pointer;
@@ -40,6 +40,11 @@
         a {
           color: #fff;
         }
+      }
+      .disabled-btn {
+        cursor: not-allowed;
+        background: rgb(130 138 147);
+        border: none;
       }
     }
   }
@@ -76,7 +81,44 @@ table {
   tbody td {
     border-top: 1px solid gray;
     padding: 5px 10px;
-    vertical-align: top;
+    vertical-align: middle;
+
+    &:last-child {
+      width: 170px;
+    }
+
+    button {
+      width: 65px;
+      height: 35px;
+      color: #fff;
+      border-radius: 5px;
+      padding: 8px 11px;
+      font-size: 16px;
+      font-weight: 700;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      display: inline-block;
+      box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+        4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+      outline: none;
+    }
+
+    .bnt-edit {
+      background: rgb(3 199 0 / 76%);
+      border: none;
+      margin-right: 10px;
+
+      a {
+        color: #fff;
+      }
+    }
+
+    .bnt-del {
+      background: rgb(233 27 27 / 94%);
+      border: none;
+    }
   }
 }
 
@@ -85,7 +127,7 @@ table {
 
   .body {
     padding: 10px 20px 10px 50px;
-    text-align: end;
+    text-align: start;
   }
 
   .input {
@@ -116,7 +158,7 @@ table {
 
     input {
       height: 30px;
-      width: 80%;
+      width: 95%;
       border-radius: 5px;
       padding: 5px 10px;
     }

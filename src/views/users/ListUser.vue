@@ -3,8 +3,11 @@
     <div class="list-header">
       <div class="list-header-title">List User</div>
       <div class="list-header-action">
-        <button class="custom-btn" @click="$emit('toggleModal')">
-          <router-link :to="{ name: 'users-add' }"> Add new </router-link>
+        <button class="custom-btn" style="margin-right: 10px">
+          <router-link :to="{ name: 'users-add' }"> Add new (vuelidate) </router-link>
+        </button>
+        <button class="custom-btn">
+          <router-link :to="{ name: 'users-add-vee' }"> Add new (vee-validate) </router-link>
         </button>
       </div>
     </div>
@@ -12,20 +15,25 @@
       <table>
         <thead>
           <tr>
-            <th align="left">id</th>
+            <th align="left">#</th>
             <th align="left">Name</th>
             <th align="left">Date of Birth</th>
             <th align="left">Email</th>
             <th align="left">Phone</th>
+            <th align="left">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="user in users" :key="user.id">
-            <td>{{ user.id }}</td>
+          <tr v-for="(user, index) in users" :key="user.id">
+            <td>{{ index + 1 }}</td>
             <td>{{ user.name }}</td>
             <td>{{ user.dateOfBirth }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.phone }}</td>
+            <td>
+              <button class="bnt-edit"><router-link :to="`/users/${user.id}`">Edit</router-link></button>
+              <button class="bnt-del" @click="usersModule.deleteUser({ id: user.id })">Delete</button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -34,24 +42,9 @@
 </template>
 
 <script setup lang="ts">
-import { defineEmits, ref } from 'vue';
-defineEmits(['toggleModal']);
-const users = ref([
-  {
-    id: 1,
-    name: 'Nguyễn Phúc Ân 1',
-    dateOfBirth: '03/03/2000',
-    email: 'phucan332000@gmail.com',
-    phone: '0345222577',
-  },
-  {
-    id: 2,
-    name: 'Nguyễn Phúc Ân 2',
-    dateOfBirth: '03/03/2000',
-    email: 'phucan332000@gmail.com',
-    phone: '0345222577',
-  },
-]);
+import { usersModule } from '@/store';
+
+const { users } = usersModule;
 </script>
 
 <style lang="scss" scoped>
