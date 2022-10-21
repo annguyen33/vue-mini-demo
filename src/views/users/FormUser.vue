@@ -72,7 +72,7 @@ async function onSubmit() {
   if (!validate) return;
 
   if (user) {
-    usersModule.editUser({
+    usersModule.updateUser({
       id: user.id,
       newUser: { ...user, name: name.value, dateOfBirth: dateOfBirth.value, email: email.value, phone: phone.value },
     });

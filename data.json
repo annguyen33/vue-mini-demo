@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": "60721bfd-41b2-493d-a9fe-2595689e475c",
+      "name": "Nguyễn Phúc Ân 1",
+      "dateOfBirth": "2022-10-14",
+      "email": "phucan332000@gmail.com",
+      "phone": "0345222577"
+    },
+    {
+      "id": "6ad710d1-34b7-4d25-822c-2772af89b162",
+      "name": "Nguyễn Phúc Ân 2",
+      "dateOfBirth": "2022-10-15",
+      "email": "phucan332000@gmail.com",
+      "phone": "0345222577"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "headphone",
+      "description": "EXTRA BASS™ for powerful, deep and noise-canceling sound",
+      "price": "106"
+    },
+    {
+      "id": "2",
+      "name": "headphone123",
+      "description": "EXTRA BASS™ for powerful, deep and noise-canceling sound",
+      "price": 101
+    },
+    {
+      "id": "7b325d62-da01-4e07-8a47-986c7b63cb93",
+      "name": "HeadPhone 2",
+      "description": "EXTRA BASS for powerful, deep and noise-canceling sound",
+      "price": "105"
+    },
+    {
+      "id": "657b2921-d25e-4d10-a2f4-48ed493dbb10",
+      "name": "HEADPHONE 4",
+      "description": "EXTRA BASS for powerful, deep and noise-canceling sound",
+      "price": "200"
+    }
+  ]
+}

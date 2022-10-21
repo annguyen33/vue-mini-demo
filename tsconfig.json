@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "experimentalDecorators": true,
+    "importHelpers": true,
     "target": "esnext",
     "module": "esnext",
     "strict": true,

@@ -17,7 +17,7 @@
 import { defineProps, defineEmits } from 'vue';
 import type { ErrorObject } from '@vuelidate/core';
 
-defineProps<{ label: string; modelValue: string | number; type: string; errors?: ErrorObject[] }>();
+const props = defineProps<{ label: string; modelValue: string | number; type: string; errors?: ErrorObject[] }>();
 const emit = defineEmits<{ (event: 'update:modelValue', payload: string): void }>();
 </script>
 

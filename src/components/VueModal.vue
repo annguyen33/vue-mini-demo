@@ -4,9 +4,14 @@
       <div class="modal-header">
         <div></div>
         <h5 class="modal-title"><slot name="title"></slot></h5>
-        <router-link :to="{ name: 'users' }">
-          <i @click="$emit('close-modal')" class="far fa-times-circle"> </i>
-        </router-link>
+        <i
+          @click="
+            $emit('close-modal');
+            router.back();
+          "
+          class="far fa-times-circle"
+        >
+        </i>
       </div>
       <!-- Modal Content -->
       <div class="modal-content">
@@ -18,7 +23,9 @@
 
 <script setup lang="ts">
 import { defineProps } from 'vue';
+import { useRouter } from 'vue-router';
 defineProps<{ modalActive: boolean }>();
+const router = useRouter();
 </script>
 
 <style lang="scss" scoped>

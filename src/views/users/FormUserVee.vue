@@ -63,7 +63,7 @@ const emit = defineEmits<{ (e: 'toggleModal'): void }>();
 
 const onSubmit = handleSubmit(async () => {
   if (user) {
-    usersModule.editUser({
+    usersModule.updateUser({
       id: user.id,
       newUser: {
         ...user,

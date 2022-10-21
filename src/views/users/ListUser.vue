@@ -2,6 +2,7 @@
   <div class="list">
     <div class="list-header">
       <div class="list-header-title">List User</div>
+      <div v-if="loading">Loading....</div>
       <div class="list-header-action">
         <button class="custom-btn" style="margin-right: 10px">
           <router-link :to="{ name: 'users-add' }"> Add new (vuelidate) </router-link>
@@ -32,7 +33,7 @@
             <td>{{ user.phone }}</td>
             <td>
               <button class="bnt-edit"><router-link :to="`/users/${user.id}`">Edit</router-link></button>
-              <button class="bnt-del" @click="usersModule.deleteUser({ id: user.id })">Delete</button>
+              <button class="bnt-del" @click="usersModule.deleteUser(user.id)">Delete</button>
             </td>
           </tr>
         </tbody>
@@ -42,9 +43,11 @@
 </template>
 
 <script setup lang="ts">
-import { usersModule } from '@/store';
+import { usersModule, loaderModule } from '@/store';
 
 const { users } = usersModule;
+usersModule.loadUsers();
+const loading = loaderModule.loadingStatus;
 </script>
 
 <style lang="scss" scoped>

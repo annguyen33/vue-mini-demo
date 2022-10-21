@@ -29,7 +29,19 @@ const admin = [
   {
     path: '/products',
     name: 'products',
-    component: () => import('../Layouts/ProductShow.vue'),
+    component: () => import('../views/products/ProductView.vue'),
+    children: [
+      {
+        name: 'products-add',
+        path: 'add',
+        component: () => import('../views/products/FormProduct.vue'),
+      },
+      {
+        name: 'product',
+        path: ':productId',
+        component: () => import('../views/products/FormProduct.vue'),
+      },
+    ],
   },
 ];
 

@@ -5,3 +5,10 @@ export interface UserEntity {
   email: string;
   phone: string;
 }
+
+export interface ProductEntity {
+  id: string;
+  name: string;
+  price: string;
+  description: string;
+}
