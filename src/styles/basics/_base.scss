@@ -1,0 +1,95 @@
+body,
+html {
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  color: #636b72;
+  margin: 0;
+  padding: 0;
+}
+
+::-moz-selection {
+  background: #ff5000;
+  color: #fff;
+}
+
+::selection {
+  background: #ff5000;
+  color: #fff;
+}
+
+a:link,
+a:hover,
+a:active,
+a:visited {
+  text-decoration: none;
+  color: #636b72;
+}
+
+ul,
+ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+textarea,
+textarea:focus,
+input,
+input:focus,
+button,
+button:focus {
+  outline: none;
+  resize: inherit;
+}
+
+/* ---------------------------------------------------------------- */
+/* 02.Typography                               
+/* ---------------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #000;
+  text-transform: capitalize;
+  margin: 0;
+  line-height: 1.5;
+}
+
+h1,
+.h1 {
+  font-size: 3.7rem;
+}
+
+h2,
+.h2 {
+  font-size: 3.2rem;
+}
+
+h3,
+.h3 {
+  font-size: 2.9rem;
+}
+
+h4,
+.h4 {
+  font-size: 2.133rem;
+}
+
+h5,
+.h5 {
+  font-size: 1.467rem;
+}
+
+h6,
+.h6 {
+  font-size: 1.2rem;
+}
+
+p {
+  line-height: 28px;
+  margin: 0;
+}

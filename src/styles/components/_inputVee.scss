@@ -1,0 +1,46 @@
+.vee-input {
+  position: relative;
+  margin-bottom: calc(1em * 1.5);
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  width: 100%;
+}
+
+input {
+  border-radius: 5px;
+  border: 2px solid transparent;
+  padding: 15px 10px;
+  outline: none;
+  background-color: #f2f5f7;
+  width: 100%;
+  transition: border-color 0.3s ease-in-out, color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+input:focus {
+  border-color: #0071fe;
+}
+
+.error-message {
+  position: absolute;
+  bottom: calc(-1.5 * 1em);
+  left: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+.vee-input.has-error input {
+  background-color: #fddfe2;
+  color: #f23648;
+}
+
+.vee-input.has-error input:focus {
+  border-color: #f23648;
+}
+
+.vee-input.has-error .vee-input {
+  color: #f23648;
+}
