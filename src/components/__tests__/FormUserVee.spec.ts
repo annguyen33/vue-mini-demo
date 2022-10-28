@@ -21,7 +21,7 @@ describe('Form users', () => {
   const triggerSubmit = wrapper.find('form').trigger('submit.prevent');
   const getErrors = () => wrapper.findAll('.input-group-error');
   const [nameInput, dateOfBirthInput, emailInput, phoneInput] = wrapper.findAll('input');
-  const buttonAdd = wrapper.find('button[type="submit"]');
+  //   const buttonAdd = wrapper.find('button[type="submit"]');
 
   test.skip('Disabled button', async () => {
     expect(FormUser).toBeTruthy();
